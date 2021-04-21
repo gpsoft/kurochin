@@ -48,12 +48,26 @@ function createChin(selector, opts) {
 		);
 	};
 	const textSize = (ctx, text)=>{
+		return text.split(/\r?\n/)
+			.map(s=>_textSize(ctx, s))
+			.reduce(([W,H], [w,h])=>[Math.max(W,w), H+h]);
+	};
+	const _textSize = (ctx, text)=>{
 		let tm = ctx.measureText(text);
 		let h = tm.actualBoundingBoxAscent + tm.actualBoundingBoxDescent;
 		// h can be NaN here
 		return [tm.width, h || tm.width/text.length*1.5];
 	};
 	const drawText = (ctx, center, text, color)=>{
+		let ss = text.split(/\r?\n/);
+		if ( ss.length <= 0 ) return;
+		let [,h] = _textSize(ctx, ss[0]);
+		let y = center.y - ((ss.length-1)/2*h);
+		ss.forEach((s,i)=>{
+			_drawText(ctx, arbor.Point(center.x, y+h*i), s, color);
+		});
+	}
+	const _drawText = (ctx, center, text, color)=>{
 		ctx.fillStyle = color;
 		ctx.textBaseline = 'middle';
 		ctx.textAlign = 'center';
@@ -84,7 +98,7 @@ function createChin(selector, opts) {
 	const makeRenderer = ($canvas, opts)=>{
 		let canvas = $canvas[0];
 		let ctx2d = canvas.getContext('2d');
-		ctx2d.font = 'bold 1.2em monospace';
+		ctx2d.font = opts.font;
 
 		return {
 			init: (system)=>{
