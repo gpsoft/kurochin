@@ -4,10 +4,10 @@ function createChin(selector, opts) {
 
 	let canvas = $canvas[0];
 	let sys = arbor.ParticleSystem(
-		1000,	// repulsion
-		60,		// stiffness
-		0.5,	// friction
-		true,	// gravity
+		5,		// repulsion(小さいほど親子ノード間が広がる?)
+		50,		// stiffness(エッジの交差を避ける力?)
+		0.1,	// friction(摩擦係数?)
+		false,	// gravity
 		24		// fps
 	);
 	let gfx = arbor.Graphics(canvas);
