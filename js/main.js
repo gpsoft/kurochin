@@ -3,6 +3,12 @@ function run() {
 		font: 'bold 1.2em monospace',
 		renderCanvas: (ctx2d)=>{
 			chin.fillCanvas(ctx2d, '#fff');
+			chin.fillRect(ctx2d, arbor.Point(chin.canvas.width-30, 16), 50, 18, '#90c8ff');
+			chin.drawText(ctx2d, arbor.Point(chin.canvas.width-30, 16), 'ツール', '#1f1f1f');
+			chin.fillRect(ctx2d, arbor.Point(chin.canvas.width-30, 36), 50, 18, '#90ffbe');
+			chin.drawText(ctx2d, arbor.Point(chin.canvas.width-30, 36), '理論', '#1f1f1f');
+			chin.fillRect(ctx2d, arbor.Point(chin.canvas.width-30, 56), 50, 18, '#ffec90');
+			chin.drawText(ctx2d, arbor.Point(chin.canvas.width-30, 56), 'その他', '#1f1f1f');
 		},
 		renderEdge: (ctx2d, fromPt, toPt, edge)=>{
 			chin.drawLine(ctx2d, fromPt, toPt, '#1f1f1f');
@@ -15,7 +21,8 @@ function run() {
 
 			var color = '#fff';
 			let bgColors = ['#ff0000', '#ff0000', '#f64343',
-				'#90c8ff', '#90ffbe', '#ffec90', '#ff0000', '#ffec90'];
+				'#90c8ff', '#90ffbe', '#ffec90',
+				'#1f75ca', '#cee7ff'];
 			let bgColor = bgColors[type-1];
 			if ( type == 1 || type == 2 || type == 7 ) {
 				w += 10;
@@ -36,15 +43,15 @@ function run() {
 		{id: 1, type: 1, caption: "アプリケーション\nプログラマーに\n必要なスキル",
 			children: [
 				{
-					id: 1, type: 3, caption: "必修科目",
+					id: 1, type: 3, caption: "共通科目",
 					children: [
 						{id: 1, type: 4, caption: "パソコン, OS"},
 						{id: 2, type: 4, caption: "テキストエディタ"},
 						{id: 3, type: 4, caption: "ターミナル、シェル"},
-						{id: 4, type: 4, caption: "Git, GitHub"},
+						{id: 4, type: 4, caption: "Git"},
 						{id: 5, type: 4, caption: "Docker"},
 						{id: 6, type: 4, caption: "Virtual Box"},
-						{id: 7, type: 5, caption: "コンピュータの仕組み\nプログラムが動く仕組み"},
+						{id: 7, type: 5, caption: "コンピュータの仕組み"},
 						{id: 8, type: 5, caption: "OSの仕組み"},
 						{id: 9, type: 5, caption: "ネットワークの仕組み"},
 						{id: 10, type: 5, caption: "文字コード"},
@@ -56,9 +63,9 @@ function run() {
 						{id: 16, type: 5, caption: "MVC"},
 						{id: 17, type: 5, caption: "デザインパターン"},
 						{id: 18, type: 5, caption: "外部依存"},
-						{id: 19, type: 5, caption: "ビルド管理\nパッケージ管理"},
+						{id: 19, type: 5, caption: "ビルド管理"},
 						{id: 20, type: 5, caption: "データ記法"},
-						{id: 21, type: 5, caption: "デバッグ手法"},
+						{id: 21, type: 5, caption: "デバッグ"},
 						{id: 22, type: 5, caption: "キャッシュ"},
 						{id: 23, type: 6, caption: "英語"},
 						{id: 24, type: 6, caption: "タッチタイピング"},
@@ -66,43 +73,37 @@ function run() {
 				{id: 2, type: 3, caption: "コマンドライン\nアプリの場合",
 					children: [
 						{id: 1, type: 6, caption: "シェルプログラミング"},
-						{id: 2, type: 4, caption: "各種コマンドライン\nユーティリティ"},
+						{id: 2, type: 4, caption: "各種コマンド"},
 					]},
 				{id: 3, type: 3, caption: "デスクトップ\nアプリの場合",
 					children: [
 						{id: 1, type: 4, caption: "IDE"},
-						{id: 2, type: 5, caption: "ウィンドウマネージャ"},
-						{id: 3, type: 5, caption: "イベントループ"},
-						{id: 4, type: 6, caption: "Electron"},
-						{id: 5, type: 6, caption: "GUIライブラリ"},
+						{id: 2, type: 5, caption: "イベントループ"},
+						{id: 3, type: 6, caption: "実行環境"},
 					]},
 				{id: 4, type: 3, caption: "モバイル\nアプリの場合",
 					children: [
 						{id: 1, type: 4, caption: "IDE"},
 						{id: 2, type: 5, caption: "イベントループ"},
-						{id: 3, type: 6, caption: "React Native"},
+						{id: 3, type: 6, caption: "実行環境"},
 					]},
 				{id: 5, type: 3, caption: "Webアプリの場合",
 					children: [
 						{id: 1, type: 4, caption: "ブラウザ"},
-						{id: 2, type: 4, caption: "ブラウザの\n開発者ツール"},
-						{id: 3, type: 4, caption: "DBMSの\nクライアントツール"},
+						{id: 2, type: 4, caption: "開発者ツール"},
+						{id: 3, type: 4, caption: "DBクライアント"},
 						{id: 4, type: 4, caption: "Linux"},
 						{id: 5, type: 4, caption: "httpサーバ"},
 						{id: 6, type: 4, caption: "Sassコンパイラ"},
 						{id: 7, type: 4, caption: "OWASP Zap"},
 						{id: 8, type: 4, caption: "クラウドサービス"},
 						{id: 9, type: 5, caption: "http"},
-						{id: 10, type: 5, caption: "HTML"},
-						{id: 11, type: 5, caption: "HTMLテンプレート"},
-						{id: 12, type: 5, caption: "css, sass"},
-						{id: 13, type: 5, caption: "JavaScript"},
-						{id: 14, type: 5, caption: "DBMS、ORM"},
-						{id: 15, type: 5, caption: "認証、認可\nセッション"},
-						{id: 16, type: 5, caption: "セキュリティ"},
-						{id: 17, type: 6, caption: "SQL"},
-						{id: 18, type: 6, caption: "jQuery"},
-						{id: 19, type: 6, caption: "Bootstrap"},
+						{id: 10, type: 5, caption: "フロントエンド言語"},
+						{id: 11, type: 5, caption: "バックエンド言語"},
+						{id: 12, type: 5, caption: "データ永続化"},
+						{id: 13, type: 5, caption: "DBMS、ORM"},
+						{id: 14, type: 5, caption: "認証、認可"},
+						{id: 15, type: 5, caption: "セキュリティ"},
 					]},
 			]},
 		{id: 2, type: 7, caption: "各プログラミング言語",

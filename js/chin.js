@@ -135,7 +135,7 @@ function createChin(selector, opts) {
 
 	return {
 		// system objects
-		sys, gfx,
+		canvas, sys, gfx,
 		// api functions
 		fillCanvas, drawLine,
 		fillRect, fillRRect, fillOval,
