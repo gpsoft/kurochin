@@ -72,20 +72,20 @@ function run() {
 					]},
 				{id: 2, type: 3, caption: "コマンドライン\nアプリの場合",
 					children: [
-						{id: 1, type: 6, caption: "シェルプログラミング"},
-						{id: 2, type: 4, caption: "各種コマンド"},
+						{id: 1, type: 5, caption: "シェルスクリプト"},
+						{id: 2, type: 5, caption: "標準入出力"},
 					]},
 				{id: 3, type: 3, caption: "デスクトップ\nアプリの場合",
 					children: [
 						{id: 1, type: 4, caption: "IDE"},
 						{id: 2, type: 5, caption: "イベントループ"},
-						{id: 3, type: 6, caption: "実行環境"},
+						{id: 3, type: 6, caption: "プラットフォーム"},
 					]},
 				{id: 4, type: 3, caption: "モバイル\nアプリの場合",
 					children: [
 						{id: 1, type: 4, caption: "IDE"},
 						{id: 2, type: 5, caption: "イベントループ"},
-						{id: 3, type: 6, caption: "実行環境"},
+						{id: 3, type: 6, caption: "プラットフォーム"},
 					]},
 				{id: 5, type: 3, caption: "Webアプリの場合",
 					children: [
@@ -99,7 +99,7 @@ function run() {
 						{id: 8, type: 4, caption: "クラウドサービス"},
 						{id: 9, type: 5, caption: "http"},
 						{id: 10, type: 5, caption: "フロントエンド言語"},
-						{id: 11, type: 5, caption: "バックエンド言語"},
+						{id: 11, type: 5, caption: "バックエンド技術"},
 						{id: 12, type: 5, caption: "データ永続化"},
 						{id: 13, type: 5, caption: "DBMS、ORM"},
 						{id: 14, type: 5, caption: "認証、認可"},
